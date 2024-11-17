@@ -36,9 +36,56 @@ class _GamesListScreenState extends State<GamesListScreen> {
               return Card(
                 margin: const EdgeInsets.all(8),
                 child: ListTile(
-                  leading: const Icon(Icons.gamepad),
-                  title: Text(game.title),
-                  subtitle: Text('${game.platform} - ${game.releaseYear}'),
+                  leading: const Icon(Icons.gamepad, size: 28),
+                  title: Text(
+                    game.title,
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          const Icon(Icons.devices, size: 20),
+                          const SizedBox(width: 8),
+                          Text(game.platform),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          const Icon(Icons.business, size: 20),
+                          const SizedBox(width: 8),
+                          Text(game.publisher),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          const Icon(Icons.calendar_today, size: 20),
+                          const SizedBox(width: 8),
+                          Text('${game.releaseYear}'),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          const Icon(Icons.category, size: 20),
+                          const SizedBox(width: 8),
+                          Text(game.genre),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          const Icon(Icons.star, size: 20),
+                          const SizedBox(width: 8),
+                          Text(game.rating.toStringAsFixed(1)),
+                        ],
+                      ),
+                    ],
+                  ),
                   trailing: IconButton(
                     icon: const Icon(Icons.delete),
                     onPressed: () async {
